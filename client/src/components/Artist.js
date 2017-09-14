@@ -21,7 +21,7 @@ class Artist extends Component {
 			return response.data;
 		}
 		catch (err) {
-			await this.setState({error.message})
+			await this.setState({error: error.message})
 			return err.message
 		}
 	}
