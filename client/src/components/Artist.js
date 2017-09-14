@@ -21,7 +21,7 @@ class Artist extends Component {
 			return response.data;
 		}
 		catch (err) {
-			await this.setState({error: error.message})
+			await this.setState({error: err.message})
 			return err.message
 		}
 	}
@@ -34,7 +34,7 @@ class Artist extends Component {
 				{this.state.songs.map(song => (
 					<div key={song.id}>
 						<h4>{song.title}</h4>
-						<audio controls src={song.preview_url}</audio>
+						<audio controls src={song.preview_url}></audio>
 					</div>
 				))}
 			</div>

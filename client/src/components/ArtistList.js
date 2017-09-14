@@ -12,7 +12,7 @@ class ArtistList extends Component {
 	}
 
 	componentWillMount(){
-		this._fetchArtist();
+		this._fetchArtists();
 	}
 
 	_fetchArtists = async () => {
@@ -37,7 +37,7 @@ class ArtistList extends Component {
 				<h1>All Artists</h1>
 				{this.state.artists.map(artist => (
 					<div>
-						<link to={`/artist/${artist.id}`} >{artist.name}</link>
+						<Link to={`/artist/${artist.id}`} >{artist.name}</Link>
 					</div>
 				))}
 			</div>
