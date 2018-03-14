@@ -6,7 +6,7 @@ class Api::ArtistsController < ApplicationController
 
     def create
     @artist = Artist.create!(artist_params)
-    redirect_to artist_path(@artist)
+    render json: @artist
   end
 
   def show
@@ -21,13 +21,13 @@ class Api::ArtistsController < ApplicationController
   def update
     @artist = Artist.find(params[:id])
     @artist.update!(artist_params)
-    redirect_to artist_path(@artist)
+    render json: @artist
   end
 
   def destroy
-    @artist = Artist.find(params[:id])
-    @artist.destroy
-    redirect_to artists_path
+    @artist = Artist.find(params[:id]).delete
+    
+    render status: :ok
   end
 
   private
