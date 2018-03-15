@@ -10,15 +10,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+
           <div>
             <h1>Tunr</h1>
             <div>
-             <Link to="/">Artists</Link>
-             <Link to="/artist/1">Single Artist</Link>
+             <div><Link to="/">Artists</Link></div>
+             <div><Link to="/artist/1">Single Artist</Link></div>
             </div>
           </div>
+
           <Route exact path="/" component={ArtistList} />
           <Route path="/artist/:id" component={Artist} />
+
         </div>
       </Router>
     );
