@@ -36,7 +36,7 @@ class ArtistList extends Component {
 			<div>
 				<h1>All Artists</h1>
 				{this.state.artists.map(artist => (
-					<div>
+					<div key={artist.id}>
 						<Link to={`/artist/${artist.id}`} >{artist.name}</Link>
 					</div>
 				))}

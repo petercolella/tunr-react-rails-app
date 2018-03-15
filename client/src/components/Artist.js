@@ -11,27 +11,24 @@ class Artist extends Component {
 	}
 
 	componentWillMount() {
-		// const artistId = this.props.match.params.id;
-		this._fetchArtistsAndSongs()
+		const artistId = this.props.match.params.id;
+		this._fetchArtistAndSongData(artistId)
 	}
 
-	_fetchArtistsAndSongs = async () => {
-		// try {
-			// const response = await axios.get(`/api/artists/${artistId}/songs`)
-			// await this.setState({artist: response.data.artist, songs: response.data.songs});
-			// return response.data;
-			const id = this.props.match.params.id;
-			const res = await axios.get(`/api/artists/${id}`)
-			this.setState({
-				artist: res.data.artist,
-				songs: res.data.songs
-			})
+	_fetchArtistAndSongData = async (artistId) => {
+		try {
+			const artistResponse = await axios.get(`/api/artists/${artistId}`)
+			const songsResponse = await axios.get(`/api/artists/${artistId}/songs`)
+			await this.setState({
+				artist: artistResponse.data, 
+				songs: songsResponse.data
+			});
 		}
-		// catch (err) {
-		// 	await this.setState({error: err.message})
-		// 	return err.message
-		// }
-	// }
+		catch (error) {
+			console.log(error)
+			await this.setState({error: error.message})
+		}
+	}
 
 	render() {
 		return (

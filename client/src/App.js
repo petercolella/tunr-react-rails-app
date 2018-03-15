@@ -14,8 +14,7 @@ class App extends Component {
           <div>
             <h1>Tunr</h1>
             <div>
-             <div><Link to="/">Artists</Link></div>
-             <div><Link to="/artist/1">Single Artist</Link></div>
+             <div><Link to="/">All Artists</Link></div>
             </div>
           </div>
 
