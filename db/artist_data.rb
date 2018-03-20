@@ -2,7 +2,7 @@ def get_artist_data
   artist_data = {
     'yeahyeahyeahs' => {
       name: 'Yeah Yeah Yeahs',
-      photo_url: 'http://www.athousandguitars.com/wp-content/uploads/2013/04/yeah-yeah-yeahs.jpg',
+      photo_url: 'http://a3.ec-images.myspacecdn.com/images02/109/e01c5563771946d79d32d7f09107b922/l.jpg',
       nationality: 'USA'
     },
     'nosajthing' => {
@@ -22,7 +22,7 @@ def get_artist_data
     },
     'kendricklamar' => {
       name: 'Kendrick Lamar',
-      photo_url: 'http://www.xxlmag.com/wp-content/uploads/2013/06/kendricklamar_001-1600.jpg',
+      photo_url: 'https://thehoovercardinal.org/wp-content/uploads/2018/02/Kendrick.jpg',
       nationality: 'USA'
     }
   }

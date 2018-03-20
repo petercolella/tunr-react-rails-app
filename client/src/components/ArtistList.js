@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+import ArtistCard from './ArtistCard';
+
+const ArtistListStyles = styled.div`
+	margin: 20px 5%;
+	width: 90%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+`;
 
 class ArtistList extends Component {
 	constructor(){
@@ -33,15 +43,16 @@ class ArtistList extends Component {
 			return <div>{this.state.error}</div>
 		}
 		return (
-			<div>
-				<h1>All Artists</h1>
-				{this.state.artists.map(artist => (
-					<div key={artist.id}>
-						<Link to={`/artist/${artist.id}`} >{artist.name}</Link>
-					</div>
+			<ArtistListStyles>
+				{/* <h1>All Artists</h1> */}
+				{this.state.artists.map((artist) => (
+					<ArtistCard key={artist.id} artist={artist} />
+					// <div key={artist.id}>
+					// 	<Link to={`/artist/${artist.id}`} >{artist.name}</Link>
+					// </div>
 				))}
-			</div>
-		);
+			</ArtistListStyles>
+		)
 	}
 }
 
