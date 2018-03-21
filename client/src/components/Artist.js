@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const ArtistStyles = styled.div`
+	img {
+		max-height: 400px;
+		width: auto;
+	}
+`;
 
 class Artist extends Component {
 	constructor() {
@@ -11,18 +19,17 @@ class Artist extends Component {
 	}
 
 	componentWillMount() {
-		const artistId = this.props.match.params.id;
-		this._fetchArtistAndSongData(artistId)
+		this._fetchArtistAndSongData();
 	}
-
-	_fetchArtistAndSongData = async (artistId) => {
+	
+	_fetchArtistAndSongData = async () => {
 		try {
-			const artistResponse = await axios.get(`/api/artists/${artistId}`)
-			const songsResponse = await axios.get(`/api/artists/${artistId}/songs`)
+			const artistId = this.props.match.params.id;
+			const res = await axios.get(`/api/artists/${artistId}`)
 			await this.setState({
-				artist: artistResponse.data, 
-				songs: songsResponse.data
-			});
+				artist: res.data.artist, 
+				songs: res.data.songs
+			})
 		}
 		catch (error) {
 			console.log(error)
@@ -32,17 +39,22 @@ class Artist extends Component {
 
 	render() {
 		return (
-			<div>
+			<ArtistStyles>
 				<img src={this.state.artist.photo_url} alt="" />
 				<h1>{this.state.artist.name}</h1>
+				<h4>Nationality: {this.state.artist.nationality}</h4>
+				<br />
+				<h2>Songs</h2>
 				{this.state.songs.map(song => (
 					<div key={song.id}>
-						<h4>{song.title}</h4>
+						<p>Title: {song.title} &mdash; Album: {song.album}</p>
 						<audio controls src={song.preview_url}></audio>
+						<br />
+						<br />
 					</div>
 				))}
-			</div>
-		);
+			</ArtistStyles>
+		)
 	}
 }
 
