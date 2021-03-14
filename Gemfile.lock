@@ -104,7 +104,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     nio4r (2.5.7)
-    nokogiri (1.11.1)
+    nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     omniauth (2.0.3)
@@ -112,7 +112,7 @@ GEM
       rack (>= 1.6.2, < 3)
       rack-protection
     orm_adapter (0.5.0)
-    pg (0.21.0)
+    pg (1.2.3)
     puma (3.12.6)
     racc (1.5.2)
     rack (2.2.3)
@@ -183,7 +183,7 @@ DEPENDENCIES
   devise_token_auth
   listen (~> 3.0.5)
   omniauth
-  pg (~> 0.18)
+  pg
   puma (~> 3.12)
   rails
   spring
